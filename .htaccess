@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9]+)/index.html$ index.go?r=$1 [L] 
+
+AddHandler cgi-script .go
+Options +ExecCGI
+DirectoryIndex index.go
