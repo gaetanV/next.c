@@ -6,25 +6,24 @@
 int main(void)
 {
 
-     printf("Content-type:text/html\n\n");
+    printf("Content-type:text/html\n\n");
 
-     printf("<html><body>");
-     struct Buffer buffer;
+    printf("<html><body>");
+    struct Buffer buffer;
 
-     char *param1;
-     param1 = getenv("QUERY_STRING");
-     
-     if(param1 != NULL){
-          
+    char *param1;
+    param1 = getenv("QUERY_STRING");
     
+    if(param1 != NULL){
+        
         int posInit = 0;
         int i = 0;
+        char *param;
 
         QueryParam(&buffer,param1,strlen(param1),0);
 
         for(int k = 0 ; k < buffer.cmp  ; k++){
 
-            char *param;
             param =(char*) malloc( ( (buffer.index[k]) -posInit) -1 * sizeof (char));
 
             i = 0;
@@ -34,7 +33,7 @@ int main(void)
             }
 
             param[i] = '\0';
-         
+            
             switch(k%2) {
                 case 0:
                     printf("<div>");
@@ -50,11 +49,15 @@ int main(void)
             posInit++;
 
         }
-     
-     }
+        
+        free(param);
+        
+    }
+
+    printf("</body></html>");
 
     free(buffer.index);
-    printf("</body></html>");
+
     return 0;
 }
 
