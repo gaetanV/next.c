@@ -17,27 +17,24 @@ int main(void)
     if(param1 != NULL){
         
         int posInit = 0;
-        int i = 0;
         char *param;
+        int diff;
 
         QueryParam(&buffer,param1,strlen(param1),0);
 
         for(int k = 0 ; k < buffer.cmp  ; k++){
 
-            param =(char*) malloc( ( (buffer.index[k]) -posInit) -1 * sizeof (char));
+            diff = (buffer.index[k]) - posInit  ;
 
-            i = 0;
-            for(;posInit < (buffer.index[k]) ; posInit++){
-                param[i] = param1[posInit];
-                i++;
-            }
+            param =(char*) malloc( diff  * sizeof (char));
+            memcpy(param , param1 + (posInit * sizeof(char)), diff );
 
-            param[i] = '\0';
+            param[diff] = '\0';
             
             switch(k%2) {
                 case 0:
                     printf("<div>");
-                    printf("<div>Param %d</div>",posInit);
+                    printf("<div>Param %d</div>",k/2);
                     printf("$ : %s <br/>",param);
                     break;
                 case 1:
@@ -46,12 +43,11 @@ int main(void)
                     break;
             }
 
-            posInit++;
-
+            posInit+=diff+1;
         }
-        
+
         free(param);
-        
+     
     }
 
     printf("</body></html>");

@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteRule ^([a-zA-Z0-9]+)/index.html$ index.go?r=$1 [L] 
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+).html$ index.go?r=$1&p=$2 [L] 
 
 AddHandler cgi-script .go
 Options +ExecCGI
