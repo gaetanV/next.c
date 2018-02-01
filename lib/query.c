@@ -7,6 +7,18 @@ const char CH_AND = '&';
 const char CH_MARK = '?';
 const char CH_EGAL = '=';
 
+int NextQuery(char* param1,int size,int pos){
+   for (;pos<size;pos++){
+        if(param1[pos]==CH_AND){
+           return pos;
+        }
+    }
+    return 0;
+}
+
+
+
+
 int QueryParam(struct Buffer* buffer,char* param1,int size,int pos) {
     int posInit = pos;
  
