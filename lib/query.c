@@ -16,9 +16,6 @@ int NextQuery(char* param1,int size,int pos){
     return 0;
 }
 
-
-
-
 int QueryParam(struct Buffer* buffer,char* param1,int size,int pos) {
     int posInit = pos;
  

@@ -5,13 +5,12 @@
 
 int main(void)
 {
-
     char *param1;
 
     printf("Content-type:text/html\n\n");
 
-    printf("<html><body>__0__");
-    
+    printf("<html><body>__API__");
+
     param1 = getenv("QUERY_STRING");
   
     if (param1 != NULL){
@@ -74,5 +73,3 @@ int main(void)
     
     return 0;
 }
-
-

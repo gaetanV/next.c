@@ -1,11 +1,9 @@
 RewriteEngine On
 
+RewriteRule ^([a-z0-9\-]+)\.html$ index.go?$1 [L] 
 
 RewriteCond %{QUERY_STRING} ^(.*)$
-RewriteRule ^([a-z0-9\-]+)\.html$ index0.go?$1&%1%2 [L] 
-
-RewriteCond %{QUERY_STRING} ^(.*)$
-RewriteRule ^([a-z0-9\-]+)\/([a-zA-Z0-9]+).html$ index1.go?$1&$2&%1%2 [L] 
+RewriteRule ^api\/([a-zA-Z0-9]+).c$ api.go?$1&%1%2 [L] 
 
 
 AddHandler cgi-script .go
