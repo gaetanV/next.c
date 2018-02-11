@@ -1,10 +1,15 @@
+
 function Route(param){
-   var html = component(param);
-   document.getElementById("c1").innerHTML = html;
-   window.history.pushState({html: html}, false, param+".html");
+
+    window.history.pushState({
+        componentJs: RouteJs(param),
+        componentC: RouteC(param)
+    }, false, param +".html");
 }
 
 window.onpopstate = function(oEvent) {
     state=oEvent.state;
-    document.getElementById("c1").innerHTML = state.html;
+    document.getElementById("c1").innerHTML = state.componentJs;
+    document.getElementById("c2").innerHTML = state.componentC;
 };
+
