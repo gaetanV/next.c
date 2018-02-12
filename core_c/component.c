@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
-#include "./../lib/io.c"
+#include "./io.c"
 
 char * component(char *param,char *(*IO_HTTP)()) {
     char *a = IO_HTTP();

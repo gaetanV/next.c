@@ -10,7 +10,7 @@ void CompileJs(char* param){
     char *path;
     path = (char*) malloc( (20 + strlen(param)) * sizeof (char));
 
-    strcpy(path, "node ./lib/node.js ");
+    strcpy(path, "node ./core_js/node.js ");
     strcat(path, param);
 
     fp = popen(path, "r");

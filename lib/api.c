@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "./lib/query.c"
+#include "./query.c"
 
 int main(void)
 {
